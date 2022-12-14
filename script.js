@@ -19,7 +19,6 @@ const errorMessageContainer = document.querySelector("#error-message");
 const weatherContainer = document.querySelector("#weather-data");
 
 // functions 
-
 const getWeatherData = async(city) => {
   
   const apiWeatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}&lang=pt_br`;
@@ -30,7 +29,6 @@ const getWeatherData = async(city) => {
     return data;
 }
 // mensagem de erro
-
 const showErrorMessage = () => {
   errorMessageContainer.classList.remove("hide");
 };
@@ -40,7 +38,6 @@ const hideInformation = () => {
   weatherContainer.classList.add("hide");
 };
 
-
 const showWeatherData = async (city) => {
   const data = await getWeatherData(city);
 
@@ -48,9 +45,7 @@ const showWeatherData = async (city) => {
     hideInformation();
     showErrorMessage();
     return;
-  }
-
-  if (data.name) {
+  } else {
     hideInformation()
   }
 
